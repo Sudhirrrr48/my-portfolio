@@ -4,12 +4,14 @@ import { Mail, Github, Linkedin, Twitter, Send } from 'lucide-react';
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{ rotateX: 5, rotateY: 5, scale: 1.01 }}
           viewport={{ once: true }}
+          style={{ perspective: 1000 }}
           className="max-w-2xl mx-auto"
         >
           <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
@@ -18,7 +20,7 @@ export const Contact = () => {
           </p>
 
           <div className="flex flex-col items-center gap-6">
-            <a href="mailto:hello@example.com" className="w-full max-w-md flex items-center gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all group">
+            <a href="mailto:sudhirmaurya2726@gmail.com" className="w-full max-w-md flex items-center gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all group">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Mail className="text-primary" />
               </div>
@@ -30,13 +32,14 @@ export const Contact = () => {
 
             <div className="flex gap-4">
               {[
-                { icon: <Github />, label: 'GitHub' },
-                { icon: <Linkedin />, label: 'LinkedIn' },
-                { icon: <Twitter />, label: 'Twitter' },
+                { icon: <Github />, label: 'GitHub', href: 'https://github.com/Sudhirrrr48' },
+                { icon: <Linkedin />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/sudhirmaurya48' },
               ].map((social) => (
                 <a
                   key={social.label}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center hover:text-primary hover:border-primary/50 transition-all"
                   title={social.label}
                 >

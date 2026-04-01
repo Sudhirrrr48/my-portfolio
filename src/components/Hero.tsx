@@ -1,7 +1,27 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-scroll';
-import { ChevronDown, Github, Linkedin, Twitter } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Twitter, Box, Database, Code, Cpu, Layout, Server } from 'lucide-react';
+
+const FloatingElement = ({ children, delay, className }: { children: React.ReactNode, delay: number, className: string }) => (
+  <motion.div
+    initial={{ y: 0, rotate: 0 }}
+    animate={{ 
+      y: [0, -20, 0],
+      rotate: [0, 10, -10, 0],
+      scale: [1, 1.1, 1]
+    }}
+    transition={{ 
+      duration: 5, 
+      repeat: Infinity, 
+      delay,
+      ease: "easeInOut"
+    }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
 
 export const Hero = () => {
   return (
@@ -10,23 +30,46 @@ export const Hero = () => {
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] animate-pulse delay-700" />
 
+      {/* 3D Floating Icons */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <FloatingElement delay={0} className="absolute top-[20%] left-[15%] text-primary/30 hidden sm:block">
+          <Box size={48} />
+        </FloatingElement>
+        <FloatingElement delay={1} className="absolute top-[60%] left-[10%] text-secondary/30 hidden md:block">
+          <Database size={56} />
+        </FloatingElement>
+        <FloatingElement delay={2} className="absolute top-[30%] right-[15%] text-accent/30 hidden sm:block">
+          <Code size={40} />
+        </FloatingElement>
+        <FloatingElement delay={3} className="absolute bottom-[20%] right-[10%] text-primary/30 hidden md:block">
+          <Cpu size={64} />
+        </FloatingElement>
+        {/* Additional 3D Elements */}
+        <FloatingElement delay={1.5} className="absolute top-[15%] right-[25%] text-secondary/20 hidden lg:block">
+          <Layout size={32} />
+        </FloatingElement>
+        <FloatingElement delay={2.5} className="absolute bottom-[35%] left-[20%] text-accent/20 hidden lg:block">
+          <Server size={44} />
+        </FloatingElement>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-6 border border-primary/20">
             Available for new opportunities
           </span>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight mb-6 leading-tight">
             Hi, I'm <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Sudhir Maurya</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-            IT Student & Aspiring Full-Stack Developer. I build modern, scalable, and user-centric digital experiences.
+          <p className="text-lg sm:text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+            IT Student & Aspiring Full-Stack Developer. I specialize in building impactful digital solutions with a focus on web development and AI exploration.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
             <Link
               to="projects"
               smooth={true}
@@ -41,12 +84,6 @@ export const Hero = () => {
             >
               Contact Me
             </Link>
-          </div>
-
-          <div className="flex items-center justify-center gap-6 text-muted">
-            <a href="#" className="hover:text-primary transition-colors"><Github className="w-6 h-6" /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Linkedin className="w-6 h-6" /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Twitter className="w-6 h-6" /></a>
           </div>
         </motion.div>
       </div>

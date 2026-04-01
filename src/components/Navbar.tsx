@@ -8,6 +8,7 @@ const navLinks = [
   { name: 'Home', to: 'home' },
   { name: 'About', to: 'about' },
   { name: 'Skills', to: 'skills' },
+  { name: 'Experience', to: 'experience' },
   { name: 'Projects', to: 'projects' },
   { name: 'Contact', to: 'contact' },
 ];
@@ -55,9 +56,6 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <button className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full text-sm font-medium transition-all hover:scale-105 glow-sm">
-            Hire Me
-          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -76,7 +74,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-card border-b border-border p-6 flex flex-col gap-4 md:hidden"
+            className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border p-6 flex flex-col gap-4 md:hidden shadow-2xl"
           >
             {navLinks.map((link) => (
               <Link
@@ -85,14 +83,11 @@ export const Navbar = () => {
                 smooth={true}
                 spy={true}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-muted hover:text-white transition-colors cursor-pointer text-lg"
+                className="text-muted hover:text-white transition-colors cursor-pointer text-lg font-medium py-2 border-b border-border/50 last:border-0"
               >
                 {link.name}
               </Link>
             ))}
-            <button className="bg-primary text-white px-5 py-3 rounded-xl text-center font-medium">
-              Hire Me
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
