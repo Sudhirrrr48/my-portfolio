@@ -81,7 +81,7 @@ export const Skills = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-8xl font-black tracking-tight leading-[0.9] uppercase"
+              className="text-5xl md:text-8xl font-black tracking-tight leading-[0.9] uppercase font-display"
             >
               Mastered <br /> <span className="text-muted">Stack.</span>
             </motion.h2>
@@ -121,7 +121,7 @@ export const Skills = () => {
                     <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
                       {category.title}
                     </h3>
-                    <p className="text-[10px] text-muted font-bold uppercase tracking-widest opacity-60">
+                    <p className="text-[10px] text-muted font-bold uppercase tracking-widest opacity-60 font-mono">
                       {category.description}
                     </p>
                   </div>
@@ -132,7 +132,7 @@ export const Skills = () => {
                     <motion.span 
                       key={skill} 
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="text-[12px] px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-muted font-bold uppercase tracking-wider group-hover:text-white group-hover:border-primary/30 transition-all cursor-default backdrop-blur-sm"
+                      className="text-[12px] px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-muted font-bold uppercase tracking-wider group-hover:text-white group-hover:border-primary/30 transition-all cursor-default backdrop-blur-sm font-mono"
                     >
                       {skill}
                     </motion.span>

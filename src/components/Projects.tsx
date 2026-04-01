@@ -78,7 +78,7 @@ export const Projects = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-16 gap-6">
           <div>
-            <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
+            <h2 className="text-4xl font-bold mb-4 font-display">Featured Projects</h2>
             <p className="text-muted max-w-xl">
               A selection of my recent work, showcasing my ability to build complex and user-friendly applications.
             </p>
@@ -115,7 +115,7 @@ export const Projects = () => {
                 <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
                 <div className="flex gap-2 mb-6 flex-wrap">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-2.5 py-1 bg-border text-muted text-xs font-bold rounded-lg uppercase tracking-wider">
+                    <span key={tag} className="px-2.5 py-1 bg-border text-muted text-xs font-bold rounded-lg uppercase tracking-wider font-mono">
                       {tag}
                     </span>
                   ))}

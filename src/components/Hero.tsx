@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-scroll';
-import { ChevronDown, Github, Linkedin, Twitter, Box, Database, Code, Cpu, Layout, Server } from 'lucide-react';
+import { ChevronDown, Box, Database, Code, Cpu, Layout, Server, Camera, User } from 'lucide-react';
 
 const FloatingElement = ({ children, delay, className }: { children: React.ReactNode, delay: number, className: string }) => (
   <motion.div
@@ -24,6 +24,21 @@ const FloatingElement = ({ children, delay, className }: { children: React.React
 );
 
 export const Hero = () => {
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setProfileImage(imageUrl);
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Background Blobs */}
@@ -59,10 +74,54 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-6 border border-primary/20">
-            Available for new opportunities
-          </span>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight mb-6 leading-tight">
+          {/* Enhanced Profile Picture Section */}
+          <div className="relative inline-block mb-12 group">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={triggerFileInput}
+              className="relative w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-primary/30 p-1.5 cursor-pointer overflow-hidden glow-sm group-hover:glow-md transition-all duration-500 z-20"
+            >
+              <div className="w-full h-full rounded-full overflow-hidden bg-card flex items-center justify-center relative">
+                {profileImage ? (
+                  <img 
+                    src={profileImage} 
+                    alt="Profile" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center gap-2 text-muted">
+                    <User size={80} strokeWidth={1} />
+                    <span className="text-[10px] uppercase tracking-widest font-bold font-mono">Upload Photo</span>
+                  </div>
+                )}
+                
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <Camera className="text-white" size={32} />
+                    <span className="text-white text-[10px] uppercase font-bold tracking-widest font-mono">Change Photo</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* Hidden File Input */}
+            <input 
+              type="file" 
+              ref={fileInputRef}
+              onChange={handleImageUpload}
+              accept="image/*"
+              className="hidden"
+            />
+            
+            {/* Decorative Animated Rings */}
+            <div className="absolute -inset-4 rounded-full border border-primary/10 animate-spin-slow pointer-events-none" />
+            <div className="absolute -inset-8 rounded-full border border-secondary/5 animate-spin-slow pointer-events-none" style={{ animationDirection: 'reverse', animationDuration: '12s' }} />
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight mb-6 leading-tight font-display">
             Hi, I'm <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Sudhir Maurya</span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">

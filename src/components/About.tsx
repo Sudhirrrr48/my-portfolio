@@ -64,7 +64,7 @@ export const About = () => {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 flex items-center justify-center md:justify-start gap-3">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 flex items-center justify-center md:justify-start gap-3 font-display">
               <User className="text-primary" /> About Me
             </h2>
             <p className="text-muted text-base md:text-lg leading-relaxed mb-6 md:mb-8">

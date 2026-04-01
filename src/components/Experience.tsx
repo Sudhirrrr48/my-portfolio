@@ -30,7 +30,7 @@ export const Experience = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-4xl font-bold mb-4">Professional Experience</h2>
+          <h2 className="text-4xl font-bold mb-4 font-display">Professional Experience</h2>
           <p className="text-muted max-w-2xl mx-auto">
             My journey in the tech world, from internships to professional roles, showcasing my growth and contributions.
           </p>
@@ -76,7 +76,7 @@ export const Experience = () => {
                           <p className="text-muted font-medium">{exp.company}</p>
                         </div>
                       </div>
-                      <div className="px-4 py-1.5 bg-border rounded-full text-xs font-bold uppercase tracking-widest text-muted">
+                      <div className="px-4 py-1.5 bg-border rounded-full text-xs font-bold uppercase tracking-widest text-muted font-mono">
                         {exp.period}
                       </div>
                     </div>
@@ -98,7 +98,7 @@ export const Experience = () => {
 
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map(skill => (
-                        <span key={skill} className="px-2.5 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-lg uppercase tracking-wider border border-primary/10">
+                        <span key={skill} className="px-2.5 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-lg uppercase tracking-wider border border-primary/10 font-mono">
                           {skill}
                         </span>
                       ))}

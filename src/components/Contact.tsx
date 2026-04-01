@@ -14,7 +14,7 @@ export const Contact = () => {
           style={{ perspective: 1000 }}
           className="max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
+          <h2 className="text-4xl font-bold mb-6 font-display">Let's Connect</h2>
           <p className="text-muted text-lg mb-10">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>
