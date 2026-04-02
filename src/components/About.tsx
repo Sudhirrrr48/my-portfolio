@@ -1,8 +1,28 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { User, GraduationCap, Target, Download, Code, Database, Layout, Server } from 'lucide-react';
 
 export const About = () => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 150 };
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [30, -30]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-30, 30]), springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
     <section id="about" className="py-12 md:py-16 bg-card/30">
       <div className="max-w-7xl mx-auto px-6">
@@ -13,45 +33,77 @@ export const About = () => {
             viewport={{ once: true }}
             className="relative flex items-center justify-center py-12 md:py-20"
           >
-            <div className="w-48 h-48 md:w-64 md:h-64 perspective-1000">
+            <div 
+              className="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center perspective-1000"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              {/* Mouse-tracking Wrapper */}
               <motion.div
-                animate={{ 
-                  rotateY: [0, 360],
-                  rotateX: [0, 360]
-                }}
-                transition={{ 
-                  duration: 20, 
-                  repeat: Infinity, 
-                  ease: "linear" 
-                }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-                className="relative w-full h-full preserve-3d"
+                style={{ rotateX, rotateY }}
+                className="absolute inset-0 preserve-3d"
               >
-                {/* Front */}
-                <div className="absolute inset-0 bg-primary/20 border-2 border-primary flex items-center justify-center backface-hidden rounded-xl backdrop-blur-sm" style={{ transform: 'translateZ(clamp(96px, 20vw, 128px))' }}>
-                  <Code className="w-12 h-12 md:w-20 md:h-20 text-primary" />
-                </div>
-                {/* Back */}
-                <div className="absolute inset-0 bg-secondary/20 border-2 border-secondary flex items-center justify-center backface-hidden rounded-xl backdrop-blur-sm" style={{ transform: 'rotateY(180deg) translateZ(clamp(96px, 20vw, 128px))' }}>
-                  <Database className="w-12 h-12 md:w-20 md:h-20 text-secondary" />
-                </div>
-                {/* Right */}
-                <div className="absolute inset-0 bg-primary/20 border-2 border-primary flex items-center justify-center backface-hidden rounded-xl backdrop-blur-sm" style={{ transform: 'rotateY(90deg) translateZ(clamp(96px, 20vw, 128px))' }}>
-                  <Layout className="w-12 h-12 md:w-20 md:h-20 text-primary" />
-                </div>
-                {/* Left */}
-                <div className="absolute inset-0 bg-secondary/20 border-2 border-secondary flex items-center justify-center backface-hidden rounded-xl backdrop-blur-sm" style={{ transform: 'rotateY(-90deg) translateZ(clamp(96px, 20vw, 128px))' }}>
-                  <Server className="w-12 h-12 md:w-20 md:h-20 text-secondary" />
-                </div>
-                {/* Top */}
-                <div className="absolute inset-0 bg-primary/20 border-2 border-primary flex items-center justify-center backface-hidden rounded-xl backdrop-blur-sm" style={{ transform: 'rotateX(90deg) translateZ(clamp(96px, 20vw, 128px))' }}>
-                  <Target className="w-12 h-12 md:w-20 md:h-20 text-primary" />
-                </div>
-                {/* Bottom */}
-                <div className="absolute inset-0 bg-secondary/20 border-2 border-secondary flex items-center justify-center backface-hidden rounded-xl backdrop-blur-sm" style={{ transform: 'rotateX(-90deg) translateZ(clamp(96px, 20vw, 128px))' }}>
-                  <User className="w-12 h-12 md:w-20 md:h-20 text-secondary" />
-                </div>
+                {/* 3D Rotating Skills Sphere */}
+                <motion.div
+                  animate={{ 
+                    rotateY: [0, 360],
+                  }}
+                  transition={{ 
+                    duration: 40, 
+                    repeat: Infinity, 
+                    ease: "linear" 
+                  }}
+                  className="absolute inset-0 preserve-3d"
+                >
+                  {[
+                    'React', 'Node.js', 'Python', 'Tailwind', 
+                    'MongoDB', 'TypeScript', 'Java', 'Git',
+                    'Next.js', 'Express', 'SQL Plus', 'Figma',
+                    'Linux', 'Vercel', 'Supabase', 'API',
+                   'PostgreSQL', 'C++', 'PHP',
+                  'Flutter','Antigravity','Vibe Coding',
+                  'JavaScript','HTML','CSS','C#','C','Anaconda',
+                  'AI/ML'
+                  ].map((skill, idx, arr) => {
+                    const total = arr.length;
+                    const phi = Math.acos(-1 + (2 * idx) / total);
+                    const theta = Math.sqrt(total * Math.PI) * phi;
+                    
+                    const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 130 : 200;
+                    
+                    const x = radius * Math.sin(phi) * Math.cos(theta);
+                    const y = radius * Math.sin(phi) * Math.sin(theta);
+                    const z = radius * Math.cos(phi);
+
+                    return (
+                      <motion.div
+                        key={skill}
+                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 preserve-3d"
+                        style={{ 
+                          transform: `translate3d(${x}px, ${y}px, ${z}px)` 
+                        }}
+                      >
+                        <motion.div
+                          animate={{ 
+                            rotateY: [360, 0],
+                          }}
+                          transition={{ 
+                            duration: 40, 
+                            repeat: Infinity, 
+                            ease: "linear" 
+                          }}
+                          className="px-2 py-1 md:px-3 md:py-1.5 rounded-lg bg-card/40 border border-white/5 backdrop-blur-sm text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-primary/80 shadow-xl whitespace-nowrap hover:text-white hover:border-primary/50 hover:bg-card/80 transition-all cursor-default"
+                        >
+                          {skill}
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
               </motion.div>
+
+              {/* Decorative Ambient Glows */}
+              <div className="absolute inset-0 rounded-full bg-primary/5 blur-3xl animate-pulse" />
             </div>
             
             {/* Background Glow */}

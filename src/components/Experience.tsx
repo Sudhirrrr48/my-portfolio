@@ -4,7 +4,7 @@ import { Briefcase, Calendar, MapPin, Globe } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Software Tester',
+    title: 'Software Tester Intern',
     company: 'EEDEE Creations',
     location: 'Remote',
     period: 'Dec 2025 - Jan 2026',

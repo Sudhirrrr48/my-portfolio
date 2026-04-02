@@ -15,11 +15,6 @@ export const Footer = () => {
         <p className="text-muted text-sm">
           © {new Date().getFullYear()} Sudhir Maurya. Built with React & Tailwind.
         </p>
-
-        <div className="flex gap-6 text-sm font-medium text-muted">
-          <a href="#" className="hover:text-white transition-colors">Privacy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms</a>
-        </div>
       </div>
     </footer>
   );

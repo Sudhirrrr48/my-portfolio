@@ -1,8 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X, Code2, Database, Layout, Server, Cpu, Globe, Sparkles } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
+
+const RotatingLogo = () => {
+  const icons = [Code2, Database, Layout, Server, Cpu, Globe, Sparkles];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % icons.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const Icon = icons[index];
+
+  return (
+    <div className="w-10 h-10 bg-primary/20 border border-primary/30 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 glow-sm overflow-hidden backdrop-blur-sm">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ y: 15, opacity: 0, rotate: -20, scale: 0.5 }}
+          animate={{ y: 0, opacity: 1, rotate: 0, scale: 1 }}
+          exit={{ y: -15, opacity: 0, rotate: 20, scale: 0.5 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 300,
+            damping: 20
+          }}
+        >
+          <Icon className="text-primary w-6 h-6" />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const navLinks = [
   { name: 'Home', to: 'home' },
@@ -34,9 +68,7 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="home" smooth={true} className="flex items-center gap-2 cursor-pointer group">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 glow-sm">
-            <Code2 className="text-white w-6 h-6" />
-          </div>
+          <RotatingLogo />
           <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-muted bg-clip-text text-transparent">
             S_MAURYA
           </span>
