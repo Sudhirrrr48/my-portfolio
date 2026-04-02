@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-scroll';
 import { ChevronDown, Box, Database, Code, Cpu, Layout, Server, Camera, User, Globe, Sparkles } from 'lucide-react';
 // Using a direct path from the public folder for maximum reliability
-const profileImage = "/me.jpg";
+const profileImage = "/me.png";
 const FloatingElement = ({ children, delay, className }: { children: React.ReactNode, delay: number, className: string }) => (
   <motion.div
     initial={{ y: 0, rotate: 0 }}
