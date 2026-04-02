@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-scroll';
 import { ChevronDown, Box, Database, Code, Cpu, Layout, Server, Camera, User, Globe, Sparkles } from 'lucide-react';
-
+import profileImg from '../assets/profile.jpg';
 const FloatingElement = ({ children, delay, className }: { children: React.ReactNode, delay: number, className: string }) => (
   <motion.div
     initial={{ y: 0, rotate: 0 }}
@@ -24,21 +24,11 @@ const FloatingElement = ({ children, delay, className }: { children: React.React
 );
 
 export const Hero = () => {
-  const [profileImage, setProfileImage] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setProfileImage(imageUrl);
-    }
-  };
-
-  const triggerFileInput = () => {
-    fileInputRef.current?.click();
-  };
-
+  // To use your own photo: 
+  // 1. Create a folder named 'assets' inside 'src' if it doesn't exist.
+  // 2. Place your image in 'src/assets/profile.jpg'
+  // 3. The code below will automatically pick it up.
+  const profileImage = profileImg;
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
@@ -48,10 +38,6 @@ export const Hero = () => {
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] animate-pulse delay-700" />
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      </div>
-
-      {/* 3D Floating Icons */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
@@ -128,8 +114,7 @@ export const Hero = () => {
               
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                onClick={triggerFileInput}
-                className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] rounded-[3rem] border-2 border-white/10 p-2 cursor-pointer overflow-hidden backdrop-blur-sm bg-white/5 shadow-2xl transition-all duration-500 z-20"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] rounded-[3rem] border-2 border-white/10 p-2 overflow-hidden backdrop-blur-sm bg-white/5 shadow-2xl transition-all duration-500 z-20"
               >
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-card flex items-center justify-center relative">
                   {profileImage ? (
@@ -142,21 +127,8 @@ export const Hero = () => {
                   ) : (
                     <div className="flex flex-col items-center gap-4 text-muted">
                       <User size={120} strokeWidth={1} className="opacity-20" />
-                      <div className="px-6 py-2 rounded-xl bg-white/5 border border-white/10 text-xs uppercase tracking-widest font-bold font-mono">
-                        Upload Profile Photo
-                      </div>
                     </div>
                   )}
-                  
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                    <div className="flex flex-col items-center gap-3">
-                      <div className="p-4 rounded-full bg-primary/20 border border-primary/40">
-                        <Camera className="text-white" size={32} />
-                      </div>
-                      <span className="text-white text-xs uppercase font-bold tracking-widest font-mono">Update Photo</span>
-                    </div>
-                  </div>
                 </div>
               </motion.div>
 
@@ -168,15 +140,6 @@ export const Hero = () => {
                 <Layout className="text-secondary" size={32} />
               </FloatingElement>
             </div>
-
-            {/* Hidden File Input */}
-            <input 
-              type="file" 
-              ref={fileInputRef}
-              onChange={handleImageUpload}
-              accept="image/*"
-              className="hidden"
-            />
           </motion.div>
         </div>
       </div>
