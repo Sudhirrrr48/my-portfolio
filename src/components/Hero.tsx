@@ -25,6 +25,7 @@ const FloatingElement = ({ children, delay, className }: { children: React.React
 );
 
 export const Hero = () => {
+  const [imageError, setImageError] = useState(false);
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
@@ -113,15 +114,16 @@ export const Hero = () => {
                 className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] rounded-[3rem] border-2 border-white/10 p-2 overflow-hidden backdrop-blur-sm bg-white/5 shadow-2xl transition-all duration-500 z-20"
               >
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-card flex items-center justify-center relative">
-                  {profileImage ? (
-                    <img 
-                      src={profileImage} 
-                      alt="Profile" 
+                  {profileImage && !imageError ? (
+                    <img
+                      src={profileImage}
+                      alt="Profile"
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      onError={() => setImageError(true)}
                     />
                   ) : (
-                    <div className="flex flex-col items-center gap-4 text-muted">
+                    <div className="flex flex-col items-center justify-center gap-4 text-muted w-full h-full">
                       <User size={120} strokeWidth={1} className="opacity-20" />
                     </div>
                   )}
