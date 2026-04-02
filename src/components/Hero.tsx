@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-scroll';
 import { ChevronDown, Box, Database, Code, Cpu, Layout, Server, Camera, User, Globe, Sparkles } from 'lucide-react';
-import profileImg from '../assets/profile.jpg';
 const FloatingElement = ({ children, delay, className }: { children: React.ReactNode, delay: number, className: string }) => (
   <motion.div
     initial={{ y: 0, rotate: 0 }}
@@ -24,11 +23,8 @@ const FloatingElement = ({ children, delay, className }: { children: React.React
 );
 
 export const Hero = () => {
-  // To use your own photo: 
-  // 1. Create a folder named 'assets' inside 'src' if it doesn't exist.
-  // 2. Place your image in 'src/assets/profile.jpg'
-  // 3. The code below will automatically pick it up.
-  const profileImage = profileImg;
+  // Using the image from the public folder for better reliability across deployments
+  const profileImage = "/profile.jpg";
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
