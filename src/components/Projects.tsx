@@ -27,7 +27,6 @@ const projects = [
     description: 'A sleek, interactive neon-themed gaming platform featuring multiple engaging mini-games with dynamic UI and immersive effects.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/Sudhirrrr48/neongaminghub.git',
-    demo: 'https://neongaminghub.vercel.app',
   },
   {
     title: 'Stock Portfolio Analyzer',
@@ -40,7 +39,6 @@ const projects = [
     description: 'Developed a full-stack Course Enrollment System with role-based access, enabling student registration, course selection and admin approval workflows.',
     tags: ['Node.js','Express.js','MongoDB'],
     github: '#',
-    demo: '#',
   },
 ];
 
@@ -123,9 +121,7 @@ export const Projects = () => {
               </div>
               
               <div className="flex items-center gap-6">
-                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors">
-                  <ExternalLink className="w-4 h-4" /> Demo
-                </a>
+                
                 <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors">
                   <Github className="w-4 h-4" /> Code
                 </a>
