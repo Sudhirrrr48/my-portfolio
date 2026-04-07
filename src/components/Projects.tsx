@@ -38,6 +38,12 @@ const projects = [
     title: 'University Course Enrollment Portal',
     description: 'Developed a full-stack Course Enrollment System with role-based access, enabling student registration, course selection and admin approval workflows.',
     tags: ['Node.js','Express.js','MongoDB'],
+    github: 'https://github.com/Sudhirrrr48/course-enrollment-portal.git',
+  },
+  {
+    title: 'College Event Management System',
+    description: 'Built an Event Management Site named BitFest 2025 which includes Event details, allows registration and contact information.',
+    tags: ['React','CSS','JavaScript'],
     github: '#',
   },
 ];
