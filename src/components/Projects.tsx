@@ -33,8 +33,7 @@ const projects = [
     title: 'Stock Portfolio Analyzer',
     description: 'A smart tool that analyzes and tracks stock investments, providing insights into performance, risk, and portfolio growth.',
     tags: ['Python', 'PySide6', 'Oracle SQL'],
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/Sudhirrrr48/stock-portfolio-analyzer.git',
   },
   {
     title: 'University Course Enrollment Portal',
