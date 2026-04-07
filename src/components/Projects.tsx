@@ -27,7 +27,7 @@ const projects = [
     description: 'A sleek, interactive neon-themed gaming platform featuring multiple engaging mini-games with dynamic UI and immersive effects.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/Sudhirrrr48/neongaminghub.git',
-    demo: 'https://neongaminghub.netlify.app',
+    demo: 'https://neongaminghub.vercel.app',
   },
   {
     title: 'Stock Portfolio Analyzer',
