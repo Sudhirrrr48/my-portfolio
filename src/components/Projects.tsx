@@ -44,7 +44,7 @@ const projects = [
     title: 'College Event Management System',
     description: 'Built an Event Management Site named BitFest 2025 which includes Event details, allows registration and contact information.',
     tags: ['React','CSS','JavaScript'],
-    github: '#',
+    github: 'https://github.com/Sudhirrrr48/event-management-system.git',
   },
 ];
 
