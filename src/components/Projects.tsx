@@ -52,6 +52,12 @@ const projects = [
     tags: ['React','Tailwind','AI'],
     github: 'https://github.com/Sudhirrrr48/my-portfolio.git',
   },
+  {
+    title: 'Internal Task Management System',
+    description: 'Built in collaboration with team members as a part of our Internship project. My work was to handle Backend and Supabase Authentications.',
+    tags: ['TypeScript','Tailwind','Node.js','Supabase','Next.js'],
+    github: 'https://github.com/Sudhirrrr48/Internal-Task-Management-System.git',
+  },
 ];
 
 export const Projects = () => {
