@@ -46,6 +46,12 @@ const projects = [
     tags: ['React','CSS','JavaScript'],
     github: 'https://github.com/Sudhirrrr48/event-management-system.git',
   },
+  {
+    title: 'My Portfolio Site',
+    description: 'Built a Portfolio site for myself to showcase my skills, work experience and few projects. Built using React.js and Tailwind CSS.',
+    tags: ['React','Tailwind','AI'],
+    github: 'https://github.com/Sudhirrrr48/my-portfolio.git',
+  },
 ];
 
 export const Projects = () => {
