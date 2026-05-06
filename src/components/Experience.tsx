@@ -15,9 +15,17 @@ const experiences = [
     title: 'Full-Stack Developer Intern',
     company: 'GarunaCDX',
     location: 'Remote',
-    period: 'Mar 2026 - Present',
+    period: 'Mar 2026 - Apr 2026',
     description: 'Developing and maintaining web applications. Collaborating with cross-functional teams to deliver high-quality software solutions.',
     skills: ['React', 'Node.js', 'Next.js', 'Tailwind CSS', 'Supabase'],
+  },
+  {
+    title: 'Product Engineering Intern',
+    company: 'GarunaCDX',
+    location: 'Remote',
+    period: 'May 2026 - Present',
+    description: 'Product Engineering Intern focused on upgrading traditional businesses with modern tech and AI driven solutions.',
+    skills: ['Marketing','Research','Problem Solving','AI'],
   },
 ];
 
