@@ -31,7 +31,7 @@ const skillCategories = [
   {
     title: 'Tools',
     icon: <Wrench className="w-6 h-6" />,
-    skills: ['Git & GitHub', 'Figma', 'Linux', 'Vercel', 'Antigravity'],
+    skills: ['Git & GitHub', 'Figma', 'Linux', 'Claude', 'Antigravity', 'Stitch'],
     description: 'DevOps & Design',
     color: 'from-purple-500/20 to-pink-500/20',
     border: 'group-hover:border-purple-500/50'
