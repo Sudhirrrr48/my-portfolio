@@ -23,9 +23,9 @@ const experiences = [
     title: 'Product Engineering Intern',
     company: 'GarunaCDX',
     location: 'Remote',
-    period: 'May 2026 - Present',
+    period: 'May 2026 - July 2026',
     description: 'Product Engineering Intern focused on upgrading traditional businesses with modern tech and AI driven solutions.',
-    skills: ['Marketing','Research','Problem Solving','AI'],
+    skills: ['Marketing','Research','Problem Solving','AI','UI/UX'],
   },
 ];
 
