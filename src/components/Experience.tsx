@@ -4,12 +4,12 @@ import { Briefcase, Calendar, MapPin, Globe } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Software Tester Intern',
-    company: 'EEDEE Creations',
+    title: 'Product Engineering Intern',
+    company: 'GarunaCDX',
     location: 'Remote',
-    period: 'Dec 2025 - Jan 2026',
-    description: 'Gained hands-on experience in software testing by identifying bugs, ensuring quality, and improving application performance.',
-    skills: ['Bug Tracking', 'Testing', 'Quality Assurance'],
+    period: 'May 2026 - July 2026',
+    description: 'Product Engineering Intern focused on upgrading traditional businesses with modern tech and AI driven solutions.',
+    skills: ['Marketing','Research','Problem Solving','AI','UI/UX'],
   },
   {
     title: 'Full-Stack Developer Intern',
@@ -20,12 +20,12 @@ const experiences = [
     skills: ['React', 'Node.js', 'Next.js', 'Tailwind CSS', 'Supabase'],
   },
   {
-    title: 'Product Engineering Intern',
-    company: 'GarunaCDX',
+    title: 'Software Tester Intern',
+    company: 'EEDEE Creations',
     location: 'Remote',
-    period: 'May 2026 - July 2026',
-    description: 'Product Engineering Intern focused on upgrading traditional businesses with modern tech and AI driven solutions.',
-    skills: ['Marketing','Research','Problem Solving','AI','UI/UX'],
+    period: 'Dec 2025 - Jan 2026',
+    description: 'Gained hands-on experience in software testing by identifying bugs, ensuring quality, and improving application performance.',
+    skills: ['Bug Tracking', 'Testing', 'Quality Assurance'],
   },
 ];
 
